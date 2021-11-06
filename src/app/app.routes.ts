@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './components/home/home.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
+import { DetallePersonajeComponent } from './components/detalle-personaje/detalle-personaje.component';
 
 const ROUTES: Routes = [
     { path: 'inicio', component: HomeComponent },
     { path: 'personajes', component: PersonajesComponent },
+    { path: 'detalle', component: DetallePersonajeComponent },
     { path: '**', component: HomeComponent },
 
     //{ path: 'path/:routeParam', component: MyComponent },
