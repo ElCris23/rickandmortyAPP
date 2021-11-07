@@ -8,7 +8,6 @@ import {ROUTING} from './app.routes';
 //components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
 import { DetallePersonajeComponent } from './components/detalle-personaje/detalle-personaje.component';
 
@@ -16,7 +15,6 @@ import { DetallePersonajeComponent } from './components/detalle-personaje/detall
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
     PersonajesComponent,
     DetallePersonajeComponent
   ],
