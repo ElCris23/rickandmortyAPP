@@ -6,10 +6,9 @@ import { PersonajesComponent } from './components/personajes/personajes.componen
 import { DetallePersonajeComponent } from './components/detalle-personaje/detalle-personaje.component';
 
 const ROUTES: Routes = [
-    { path: 'inicio', component: HomeComponent },
     { path: 'personajes', component: PersonajesComponent },
-    { path: 'detalle', component: DetallePersonajeComponent },
-    { path: '**', component: HomeComponent },
+    { path: 'detalle/:id', component: DetallePersonajeComponent },
+    { path: '**', component: PersonajesComponent },
 
     //{ path: 'path/:routeParam', component: MyComponent },
     //{ path: 'staticPath', component: ... },

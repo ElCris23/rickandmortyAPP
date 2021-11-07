@@ -1,12 +1,39 @@
-<h1>Personajes <small>The Rick and Morty</small></h1>
-<div class="card-columns">
-    <div class="card" style="width: 60%;">
-        <img class="card-img-top" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick">
-        <div class="card-body">
-          <h5 class="card-title">Rick Sanchez</h5>
-          <p class="card-text">Human <br> Alive</p>
-          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+<div class="row">
+   <div class="col-md-4">
+   <h1>Characters</h1> 
+</div>
+<div class="col-md-8">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+</div> 
+</div>
+
+
+<div class="row">
+    <div class="col-md-3" *ngFor="let p of personajes" (click)="verDetalle(p.id)">
+        <div class="profile-card-2"><img [src]="p.image" class="img img-responsive">
+            <div class="profile-name">{{ p.name }}</div>
+            <div class="profile-species">{{ p.species }}</div>
+            <div class="profile-icons">
+                <div class="profile-status">{{ p.status }}</div>
+            </div>
         </div>
-      </div>
-      
+    </div>
 </div>
