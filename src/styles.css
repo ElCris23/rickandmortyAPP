@@ -1,10 +1,43 @@
+body{
+    background-image: url('assets/img/back1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container .detalle{
+    background-color: #0d0d0e9e;
+    width: 200%;
+    color: white;
+}
 .main-container{
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .card-columns {
       column-count: 5;
   }
+
+.page-item.active .page-link{
+    background-color: #00b0c7 !important;
+    border-color: #00b0c7 !important;
+}
+
+.page-link{
+    background-color: #36f368 !important;
+    border: 3px solid #00b0c7 !important;    
+}
+
+.page-link:hover{
+    background-color: #36f368a8 !important;
+}
+
+a:not([href]):not([tabindex]){
+    color: white !important;
+}
+
+.page-item.active .page-link:hover{
+    color: inherit !important;
+}
 
   .profile-card-2 {
     max-width: 300px;

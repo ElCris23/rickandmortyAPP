@@ -1,10 +1,10 @@
-
-<div class="row animated fadeIn fast">
-  <div class="col-md-4">
+<div class="container detalle">
+  <div class="row animated fadeIn fast">
+  <div class="col-md-4" style="margin-top: 30px;">
     <img [src]="personaje.image" class="img-fluid" alt="rick&morty">
     <br><br>
   </div>
-  <div class="col-md-8 backDiv">
+  <div class="col-md-8 backDiv" style="margin-top: 30px;">
     <h1 class="animated fadeIn">Name: {{personaje.name}}</h1>
 <hr>
     <h3>Species: {{personaje.species}}</h3>
@@ -13,10 +13,10 @@
      Gender: {{personaje.gender}}<br>Status: {{personaje.status}} <br> Origin: {{personaje.origin.name}}
     </p>
     <div class="col-md-offset-8">
-    <a [routerLink]="['/personajes']" class="btn btn-outline-success">Regresar</a>
-      <!-- <img *ngIf="heroe.casa == 'Marvel'" class="img-logo" src="assets/img/marvel-logo.png" alt="DC">
-      <img *ngIf="heroe.casa == 'DC'" class="img-logo" src="assets/img/dc-logo.jpg" alt="Marvel"> -->
+    <a [routerLink]="['/personajes']" class="btn btn-success">Regresar</a>
       <br><br><br><br>
     </div>
   </div>
 </div>
+</div>
+

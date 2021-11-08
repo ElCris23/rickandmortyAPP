@@ -24,8 +24,6 @@ export class PersonajesComponent implements OnInit {
   ngOnInit(): void {
 
     this.flag=this.personajesService.getFlag();
-    this.pagina=this.personajesService.getPagina();
-    console.log(this.flag,this.pagina);
     if(!this.flag){
       this.personajesService.obtenerPersonajes().subscribe(
         resp => {
@@ -41,9 +39,12 @@ export class PersonajesComponent implements OnInit {
             this.paginas[0] = this.pages[0];
             this.paginas[1] = this.pages[1];
             this.paginas[2] = this.pages[2];
+            this.paginas[3] = this.pages[3];
+            this.paginas[4] = this.pages[4];
             this.paginas[0].class = "page-item active";
         });
     }else{
+      this.pagina=this.personajesService.getPagina();
       this.personajesService.obtenerPersonajesPagina(this.pagina).subscribe(
         resp => {
           console.log("resp pag -> ",resp);
@@ -51,18 +52,26 @@ export class PersonajesComponent implements OnInit {
           for(let i=0;i<resp.info.pages;i++){
             this.page=new PaginaModel();
             this.page.numero = i+1;
-            this.page.class = "page-item";
+            if(i+1==this.pagina){
+              this.page.class = "page-item active";
+            }else{
+              this.page.class = "page-item";
+            }
             this.pages.push(this.page);
+
           }
-          if(this.pagina < this.pages.length-3){
+          if(this.pagina < this.pages.length-4){
             this.paginas[0] = this.pages[this.pagina-1];
             this.paginas[1] = this.pages[this.pagina];
             this.paginas[2] = this.pages[this.pagina+1];
-            this.paginas[0].class = "page-item active";            
+            this.paginas[3] = this.pages[this.pagina+2];
+            this.paginas[4] = this.pages[this.pagina+3];           
           }else{
-            this.paginas[2] = this.pages[this.pages.length-1];
-            this.paginas[1] = this.pages[this.pages.length-2];
-            this.paginas[0] = this.pages[this.pages.length-3];
+            this.paginas[4] = this.pages[this.pages.length-1];
+            this.paginas[3] = this.pages[this.pages.length-2];
+            this.paginas[2] = this.pages[this.pages.length-3];
+            this.paginas[1] = this.pages[this.pages.length-4];
+            this.paginas[0] = this.pages[this.pages.length-5];
           }
         }
       );
@@ -95,16 +104,20 @@ export class PersonajesComponent implements OnInit {
   nextPage(page:number){
     let total = this.pages.length;
     for(let pag in this.pages){
-      if(page<total-3){
+      if(page<total-4){
         if(this.pages[pag].numero == page){
           this.paginas[0] = this.pages[pag];
           this.paginas[1] = this.pages[parseInt(pag)+1];
           this.paginas[2] = this.pages[parseInt(pag)+2];
+          this.paginas[3] = this.pages[parseInt(pag)+3];
+          this.paginas[4] = this.pages[parseInt(pag)+4];
         }
       }else{
-        this.paginas[2] = this.pages[total-1];
-        this.paginas[1] = this.pages[total-2];
-        this.paginas[0] = this.pages[total-3];        
+        this.paginas[4] = this.pages[total-1];
+        this.paginas[3] = this.pages[total-2];
+        this.paginas[2] = this.pages[total-3];
+        this.paginas[1] = this.pages[total-4];
+        this.paginas[0] = this.pages[total-5];        
       }
 
     }
@@ -112,16 +125,20 @@ export class PersonajesComponent implements OnInit {
 
   previousPage(page:number){
       for(let pag in this.pages){
-        if(page>3){
+        if(page>5){
           if(this.pages[pag].numero == page){
-          this.paginas[0] = this.pages[parseInt(pag)-2];
-          this.paginas[1] = this.pages[parseInt(pag)-1];
-          this.paginas[2] = this.pages[pag];
+          this.paginas[0] = this.pages[parseInt(pag)-4];
+          this.paginas[1] = this.pages[parseInt(pag)-3];
+          this.paginas[2] = this.pages[parseInt(pag)-2];
+          this.paginas[3] = this.pages[parseInt(pag)-1];
+          this.paginas[4] = this.pages[pag];
         }
         }else{
           this.paginas[0] = this.pages[0];
           this.paginas[1] = this.pages[1];
           this.paginas[2] = this.pages[2];
+          this.paginas[3] = this.pages[3];
+          this.paginas[4] = this.pages[4];
         }
       }
     

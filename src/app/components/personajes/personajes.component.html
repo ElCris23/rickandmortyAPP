@@ -1,63 +1,59 @@
-<div class="row">
-   <div class="col-md-4">
-   <h1>Characters</h1> 
+<div class="container detalle">
+  <div class="row">
+    <div class="col-md-4" style="margin-top:15px;">
+    <h1>Characters</h1> 
+ </div>
+ <div class="col-md-8" style="margin-top:15px;">
+     <nav aria-label="Page navigation example">
+         <ul class="pagination justify-content-end">
+           <li class="page-item" (click)="previousPage(paginas[0].numero-1)">
+             <a class="page-link" aria-label="Previous">
+               <span aria-hidden="true">&laquo;</span>
+               <span class="sr-only">Previous</span>
+             </a>
+           </li>
+           <li *ngFor="let i of paginas" [class]="i.class" (click)="paginacion(i.numero)"><a class="page-link">{{i.numero}}</a></li>
+           <li class="page-item" (click)="nextPage(paginas[4].numero+1)">
+             <a class="page-link" aria-label="Next">
+               <span aria-hidden="true">&raquo;</span>
+               <span class="sr-only">Next</span>
+             </a>
+           </li>
+         </ul>
+       </nav>
+ </div> 
+ </div>
+ 
+ 
+ <div class="row">
+     <div class="col-md-3" *ngFor="let p of personajes" (click)="verDetalle(p.id)">
+         <div class="profile-card-2"><img [src]="p.image" class="img img-responsive">
+             <div class="profile-name">{{ p.name }}</div>
+             <div class="profile-species">{{ p.species }}</div>
+             <div class="profile-icons">
+                 <div class="profile-status">{{ p.status }}</div>
+             </div>
+         </div>
+     </div>
+ </div>
+ 
+ <div class="col-md-12">
+   <nav aria-label="Page navigation example">
+       <ul class="pagination justify-content-end">
+         <li class="page-item" (click)="previousPage(paginas[0].numero-1)">
+           <a class="page-link" aria-label="Previous">
+             <span aria-hidden="true">&laquo;</span>
+             <span class="sr-only">Previous</span>
+           </a>
+         </li>
+         <li *ngFor="let i of paginas" [class]="i.class" (click)="paginacion(i.numero)"><a class="page-link">{{i.numero}}</a></li>
+         <li class="page-item" (click)="nextPage(paginas[4].numero+1)">
+           <a class="page-link" aria-label="Next">
+             <span aria-hidden="true">&raquo;</span>
+             <span class="sr-only">Next</span>
+           </a>
+         </li>
+       </ul>
+     </nav>
+ </div> 
 </div>
-<div class="col-md-8">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-          <li class="page-item" (click)="previousPage(paginas[0].numero-1)">
-            <a class="page-link" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <!-- <li [class]="paginas[0].class" (click)="paginacion(paginas[0].numero)"><a class="page-link">{{paginas[0].numero}} </a></li>
-          <li [class]="paginas[1].class" (click)="paginacion(paginas[1].numero)"><a class="page-link">{{paginas[1].numero}}</a></li>
-          <li [class]="paginas[2].class" (click)="paginacion(paginas[2].numero)"><a class="page-link">{{paginas[2].numero}}</a></li> -->
-          <li *ngFor="let i of paginas" [class]="i.class" (click)="paginacion(i.numero)"><a class="page-link">{{i.numero}}</a></li>
-          <li class="page-item" (click)="nextPage(paginas[2].numero+1)">
-            <a class="page-link" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-</div> 
-</div>
-
-
-<div class="row">
-    <div class="col-md-3" *ngFor="let p of personajes" (click)="verDetalle(p.id)">
-        <div class="profile-card-2"><img [src]="p.image" class="img img-responsive">
-            <div class="profile-name">{{ p.name }}</div>
-            <div class="profile-species">{{ p.species }}</div>
-            <div class="profile-icons">
-                <div class="profile-status">{{ p.status }}</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-12">
-  <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-end">
-        <li class="page-item" (click)="previousPage(paginas[0].numero-1)">
-          <a class="page-link" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <!-- <li [class]="paginas[0].class" (click)="paginacion(paginas[0].numero)"><a class="page-link">{{paginas[0].numero}} </a></li>
-        <li [class]="paginas[1].class" (click)="paginacion(paginas[1].numero)"><a class="page-link">{{paginas[1].numero}}</a></li>
-        <li [class]="paginas[2].class" (click)="paginacion(paginas[2].numero)"><a class="page-link">{{paginas[2].numero}}</a></li> -->
-        <li *ngFor="let i of paginas" [class]="i.class" (click)="paginacion(i.numero)"><a class="page-link">{{i.numero}}</a></li>
-        <li class="page-item" (click)="nextPage(paginas[2].numero+1)">
-          <a class="page-link" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-</div> 
