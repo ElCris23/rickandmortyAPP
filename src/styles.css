@@ -4,10 +4,16 @@ body{
     background-size: cover;
 }
 
+.jumbotron__background{
+    top: -164px !important;
+    height: 200% !important;
+}
+
 .container .detalle{
     background-color: #0d0d0e9e;
     width: 200%;
     color: white;
+    margin-bottom: 30px;
 }
 .main-container{
     margin-top: 5px;

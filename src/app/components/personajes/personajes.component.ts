@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaginaModel } from 'src/app/models/paginas.model';
 import { PersonajeModel } from 'src/app/models/personaje.model';
+import { PaginaService } from 'src/app/services/pagina.service';
 import { PersonajesService } from 'src/app/services/personajes.service';
 
 @Component({
@@ -19,11 +20,12 @@ export class PersonajesComponent implements OnInit {
   flag:boolean;
 
   constructor(private personajesService: PersonajesService,
-              private roter: Router) {}
+              private roter: Router,
+              private paginaService: PaginaService) {}
 
   ngOnInit(): void {
 
-    this.flag=this.personajesService.getFlag();
+    this.flag=this.paginaService.getFlag();
     if(!this.flag){
       this.personajesService.obtenerPersonajes().subscribe(
         resp => {
@@ -44,7 +46,7 @@ export class PersonajesComponent implements OnInit {
             this.paginas[0].class = "page-item active";
         });
     }else{
-      this.pagina=this.personajesService.getPagina();
+      this.pagina=this.paginaService.getPagina();
       this.personajesService.obtenerPersonajesPagina(this.pagina).subscribe(
         resp => {
           console.log("resp pag -> ",resp);
@@ -80,8 +82,8 @@ export class PersonajesComponent implements OnInit {
   }
 
   verDetalle(ide:number){
-    this.personajesService.setPagina(this.pagina)
-    this.personajesService.setFlag(true);
+    this.paginaService.setPagina(this.pagina)
+    this.paginaService.setFlag(true);
     this.roter.navigateByUrl(`/detalle/${ ide }`);
   }
 
